@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char histogram(char str[], int hist[26])
 {
@@ -33,15 +34,9 @@ int main()
     {
         tab[i] = 0;
     }
-    char *mot = (char *)malloc(10*sizeof(char));
-    mot[0] = 'r';
-    mot[1] = 'r';
-    mot[2] = 'r';
-    mot[3] = 'm';
-    mot[4] = 'm';
-    mot[5] = 'm';
-    mot[6] = '\0';
-    printf("%c\n", histogram(mot, tab));
+    char *mot = (char *)malloc(100*sizeof(char));
+    strcpy(mot, "hvbuioarthvapzioryvaôa evzipbzyevrp");
+    printf("mot : %s, lettre la plus fréquente : %c\n", mot, histogram(mot, tab));
     free(tab);
     free(mot);
     return 0;
