@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void reverse_string(char str[])
 {
@@ -20,15 +21,8 @@ void reverse_string(char str[])
 
 int main()
 {
-    char *str = (char *) malloc(10*sizeof(char));
-    str[0] = 'C';
-    str[1] = 'O';
-    str[2] = 'U';
-    str[3] = 'C';
-    str[4] = 'O';
-    str[5] = 'U';
-    str[6] = 'K';
-    str[7] = '\0';
+    char *str = (char *) malloc(50*sizeof(char));
+    strcpy(str, "Coucou tout le monde");
     reverse_string(str);
     printf("%s\n", str);
     free(str);
