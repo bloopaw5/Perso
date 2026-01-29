@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void to_lower(char str[])
 {
@@ -15,14 +16,9 @@ void to_lower(char str[])
 
 int main()
 {
-    char *mot = (char *) malloc(10*sizeof(char));
-    mot[0] = 'M';
-    mot[1] = 'a';
-    mot[2] = 'N';
-    mot[3] = 'g';
-    mot[4] = 'E';
-    mot[5] = 'r';
-    mot[6] = '\0';
+    char *mot = (char *) malloc(50*sizeof(char));
+    strcpy(mot, "MAAAAAAAAAAAAANgeer");
+    printf("%s\t", mot);
     to_lower(mot);
     printf("%s\n", mot);
     free(mot);
