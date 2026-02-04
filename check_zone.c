@@ -42,8 +42,24 @@ int check_zone(int map_h, int map_w, int map[map_h][map_w], int x, int y, int re
 int main()
 {
     srand(time(NULL));
-    int map_h = 6;
-    int map_w = 6;
+    int map_h;
+    int map_w;
+    int x;
+    int y;
+    int rect_h;
+    int rect_w;
+    printf("Choisir la hauteur de la map : ");
+    scanf("%d", &map_h);
+    printf("Choisir la largeur de la map : ");
+    scanf("%d", &map_w);
+    printf("Quelle est la hauteur du bâtiment ? ");
+    scanf("%d", &rect_h);
+    printf("Quelle est la largeur du bâtiment ? ");
+    scanf("%d", &rect_w);
+    printf("Coordonnée x du coin supérieur gauche : ");
+    scanf("%d", &x);
+    printf("Coordonnée y du coin supérieur gauche : ");
+    scanf("%d", &y);
     int map[map_h][map_w];
     int i;
     int j;
@@ -54,10 +70,6 @@ int main()
             map[i][j] = rand()%2;
         }
     }
-    int x = 1;
-    int y = 3;
-    int rect_h = 2;
-    int rect_w = 2;
     affiche_mat(map_h, map_w, map);
     check_zone(map_h, map_w, map, x, y, rect_h, rect_w);
     affiche_mat(map_h, map_w, map);
