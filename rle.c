@@ -4,15 +4,27 @@
 
 void rle(char str[])
 {
+    int l = 0;
+    while (str[l]!='\0')
+    {
+        l++;
+    }
     int i = 0;
-    int cpt = 0;
-    char *res = (char *) malloc(50*sizeof(char));
+    int cpt = 1;
+    char res[2*l];
     int r = 0;
     while (str[i]!='\0')
     {
-        if (str[i+1]!=str[i])
+        if (str[i+1]!=str[i]) /*Si le caractère est identique au suivant*/
         {
-            res[r] = cpt+49;
+            while (cpt>=10) /*Si le nombre d'occurrences du caractère excède 10*/
+            {
+                cpt -= 9;
+                res[r] = 57; /*Code ASCII de 9*/
+                res[r+1] = str[i];
+                r+=2;
+            }
+            res[r] = cpt+48;
             res[r+1] = str[i];
             cpt = 0;
             r+=2;
@@ -22,15 +34,12 @@ void rle(char str[])
     }
     res[r] = '\0';
     printf("%s\n", res);
-    free(res);
 }
 
 int main()
 {
-    char *str = (char *) malloc(50*sizeof(char));
-    strcpy(str, "ccccccchhh");
+    char str[] = "hey maaan";
     printf("Chaîne de base : %s\n", str);
     rle(str);
-    free(str);
     return 0;
 }
